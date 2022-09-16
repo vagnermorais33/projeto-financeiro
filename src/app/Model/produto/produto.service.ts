@@ -18,7 +18,21 @@ export class ProdutoService{
   selectAll(){
     return this.httpClient.get<Produto[]>(RECURSO);
   }
+  selectById(id: number){
+    return this.httpClient.get<Produto[]>(RECURSO+`/${id}`);
+  }
 
+  insert(obj: Produto){
+    return this.httpClient.post<Produto>(RECURSO, obj);
+  }
+
+  update(obj: Produto){
+    return this.httpClient.put<Produto>(RECURSO+`/${obj.id}`, obj);
+  }
+
+  delete(id: number){
+    return this.httpClient.delete<Produto>(RECURSO+`/${id}`);
+  }
   // selectAll(){
   //   return [
   //     { id:1, ativo: true, createdAt: "2022-08-18", updatedAt: "2022-08-18", descricao: "teste", valor: 100, saldo: 200, tipo: "ENTRADA"},

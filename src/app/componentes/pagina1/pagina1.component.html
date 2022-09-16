@@ -1,12 +1,18 @@
-<div class="div-principal p-5">
+<mat-toolbar class="d-flex justify-content-evenly"color="primary">  <!-- TOOLBAR COR AZUL-->
+  <span>Sistema Financeiro</span>
+  <span>Página1/Cadastrar-Produto</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
 
-  <p class="mb-5">pagina1 works!</p>
+<div class="div-principal p-5">
 
   <div class="d-flex justify-content-evenly mb-5">
         
-        <a routerLink="/"><input type="button" value="Pagina-Principal"></a>
-        <a routerLink="/pagina2"><input type="button" value="Pagina2"></a>
-
+        <!--<a routerLink="/"><input type="button" value="Pagina-Principal"></a>-->
+        <!--<a routerLink="/pagina2"><input type="button" value="Pagina2"></a>-->
+        <button mat-raised-button color="primary" (click)="navegarPara([''])"> Pagina Principal </button>
+        <button mat-raised-button color="primary" (click)="navegarPara(['pagina2'])"> Pagina 2 </button>
+         <!--<button mat-raised-button color="primary" (click)="openDialogAddTransacao()"> Add Transação </button>-->
     </div>
 
     <mat-form-field appearance="standard">

@@ -112,10 +112,10 @@ export class PaginaPrincipalComponent implements OnInit {
 
   }
 
-  openDialogEditarTransacao(obj?: Transacao){
+  openDialogEditarTransacao(obj?: Transacao, isDisplaying?: boolean){
     const dialogRef = this.dialog.open(DialogEditarTransacaoComponent, {
       width: '1000px',
-      data: {transacao: obj}
+      data: {transacao: obj, isDisplaying: isDisplaying}
    });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -125,7 +125,6 @@ export class PaginaPrincipalComponent implements OnInit {
 
   }
   
-
   deletar(obj: Transacao){
     let that = this;
 
