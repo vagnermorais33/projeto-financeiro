@@ -12,7 +12,7 @@
         <!--<a routerLink="/pagina2"><input type="button" value="Pagina2"></a>-->
         <button mat-raised-button color="primary" (click)="navegarPara([''])"> Pagina Principal </button>
         <button mat-raised-button color="primary" (click)="navegarPara(['pagina2'])"> Pagina 2 </button>
-         <!--<button mat-raised-button color="primary" (click)="openDialogAddTransacao()"> Add Transação </button>-->
+        <button mat-raised-button color="primary" (click)="openDialogAddProduto()"> Add Produto </button>
     </div>
 
     <mat-form-field appearance="standard">
@@ -47,6 +47,27 @@
             <th mat-header-cell *matHeaderCellDef> Estoque </th>
             <td mat-cell *matCellDef="let element"> {{element.estoque}} </td>
         </ng-container>
+
+         <!-- Ações Column -->
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> Ações</th>
+        <td  mat-cell *matCellDef="let element">
+
+         <button class="mx-2" mat-mini-fab color="warn" aria-label="Deletar Produto"(click)="deletar(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+          <button class="mx-2" mat-mini-fab color="primary"aria-label="Editar Produto"(click)="openDialogEditarProduto(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button class="mx-2" mat-mini-fab color="accent"aria-label="Visualizar Produto">
+            <mat-icon>visibility</mat-icon>
+          </button>
+
+        </td>
+      </ng-container>
+
       
   
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

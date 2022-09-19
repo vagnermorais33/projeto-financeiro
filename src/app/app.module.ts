@@ -16,6 +16,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { Dialog } from '@angular/cdk/dialog';
 import { DialogInseririTransacaoComponent } from './componentes/dialog-inseriri-transacao/dialog-inseriri-transacao.component';
 import { DialogEditarTransacaoComponent } from './componentes/dialog-editar-transacao/dialog-editar-transacao.component';
+import { DialogInserirProdutoComponent } from './componentes/dialog-inserir-produto/dialog-inserir-produto.component';
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import { DialogEditarProdutoComponent } from './componentes/dialog-editar-produto/dialog-editar-produto.component';
 
 
 
@@ -28,6 +31,8 @@ import { DialogEditarTransacaoComponent } from './componentes/dialog-editar-tran
     PaginaPrincipalComponent,
     DialogInseririTransacaoComponent,
     DialogEditarTransacaoComponent,
+    DialogInserirProdutoComponent,
+    DialogEditarProdutoComponent,
     
 
   
@@ -43,6 +48,9 @@ import { DialogEditarTransacaoComponent } from './componentes/dialog-editar-tran
     MatFormFieldModule,
     MatInputModule,
     MatDividerModule,
+    MatToolbarModule,
+    
+    
     
     
 

@@ -1,0 +1,29 @@
+<h1>Produto</h1>
+
+ <mat-divider class="my-3"></mat-divider>
+
+<mat-form-field class="example-full-width my-2" appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="produto.nome" #nomeText maxlength="256" placeholder="Nome dos produtos">
+    <mat-hint align="start"><strong>Ex.: Nome dos produtos para o estoque.</strong> </mat-hint>
+    <mat-hint align="end">{{nomeText.value.length}} / 256</mat-hint>
+  </mat-form-field>
+
+<mat-form-field appearance="fill" floatLabel="always" class="my-2 me-3">
+    <mat-label>Valor Compra</mat-label>
+    <input matInput [(ngModel)]="produto.valorCompra" type="number" class="example-right-align" placeholder="0">
+    <span matPrefix>R$&nbsp;</span>
+</mat-form-field>
+
+<mat-form-field appearance="fill" floatLabel="always" class="my-2 me-3">
+    <mat-label>Estoque</mat-label>
+    <input matInput [(ngModel)]="produto.estoque" type="number" class="example-right-align" placeholder="0">
+    <span matPrefix>R$&nbsp;</span>
+</mat-form-field>
+
+<div>
+    <button class="me-3 btn btn-success" (click)="editar()">Editar</button>
+    <button class="me-3 btn btn-danger" (click)="cancelar()">Cancelar</button>
+  </div>
+
+
