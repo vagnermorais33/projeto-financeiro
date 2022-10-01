@@ -10,6 +10,9 @@ import { TransacaoService } from 'src/app/Model/transacao/transacao.service';
 })
 export class DialogEditarTransacaoComponent implements OnInit {
 
+descricaoInput:string ="";  
+valorInput: number= 0;
+tipoInput: string="";
 transacao: any; 
 isDisplaying= true;
 

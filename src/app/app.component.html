@@ -1,2 +1,81 @@
+<mat-drawer-container hasBackdrop="true">
+  <mat-drawer class="example-sidenav" #drawer mode="over">
 
-<router-outlet></router-outlet>
+    <h1>Sistema Financeiro</h1>
+
+    <div class="d-block m-1 btn">
+      <button class="w-100" mat-raised-button color="primary" (click)="drawer.toggle()"
+        (click)="navegaPara(['transacoes'])"> Transações</button>
+    </div>
+
+    <div class="d-block m-1 btn">
+      <button class="w-100" mat-raised-button color="primary" (click)="drawer.toggle()"
+        (click)="navegaPara(['pagina1'])"> Produtos</button>
+    </div>
+
+    <div class="d-block m-1 btn">
+      <button class="w-100" mat-raised-button color="primary" (click)="drawer.toggle()"
+        (click)="navegaPara(['pagina2'])"> Pagina 2 </button>
+    </div>
+
+
+  </mat-drawer>
+  <mat-drawer-content>
+
+    <!-- conteudo -->
+    <mat-toolbar color="primary">
+      <button (click)="drawer.toggle()" mat-icon-button class="example-icon me-3"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Sistema Financeiro / {{title}}</span>
+      <span class="example-spacer"></span>
+
+      <nav>
+        <ul>
+          <button mat-button [matMenuTriggerFor]="beforeMenu">
+           <mat-icon>person</mat-icon>
+          </button>
+          
+
+
+          <mat-menu #beforeMenu="matMenu" xPosition="before">
+            <div class="menu">
+              <button mat-menu-item>
+                <i class="bi bi-person"></i> &nbsp; Profile
+              </button>
+
+              <button mat-menu-item>
+                <i class="bi bi-gear"></i>&nbsp; Settings
+              </button>
+              <button mat-menu-item>
+                <p>
+                  <i class="bi bi-envelope"> &nbsp;</i> E-mail
+                  <span matBadge="4" matBadgeOverlap="false"></span>
+                </p>
+              </button>
+
+              <button mat-menu-item>
+                <p>
+                  <i class="bi bi-envelope"> &nbsp;</i> Notificação
+                  <span matBadge="4" matBadgeOverlap="false"></span>
+                </p>
+              </button>
+
+            </div>
+
+
+          </mat-menu>
+
+
+        </ul>
+
+      </nav>
+     </mat-toolbar>
+
+      <router-outlet></router-outlet>
+
+      <!-- conteudo -->
+
+  </mat-drawer-content>
+</mat-drawer-container>

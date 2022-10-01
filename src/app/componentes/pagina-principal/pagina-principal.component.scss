@@ -22,8 +22,30 @@ span{
   text-align:center;
 }
 
+.example-card {
+  width: 250px;
+  min-height: 90px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px rgba(110, 110, 110, 0.616);
+  background-color: #ddd;
+  opacity: 1;
+  }
+  
+  .example-card:hover {
+  opacity: 0.9;
+  }
+  
+  
+  
+  .cards{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  }
 
- 
+  
 
 
 

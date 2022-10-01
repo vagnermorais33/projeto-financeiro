@@ -1,19 +1,19 @@
-<mat-toolbar class="d-flex justify-content-evenly"color="primary">  <!-- TOOLBAR COR AZUL-->
+<!--<mat-toolbar class="d-flex justify-content-evenly"color="primary">    
   <span>Sistema Financeiro</span>
   <span>Página1/Cadastrar-Produto</span>
   <span class="example-spacer"></span>
-</mat-toolbar>
+</mat-toolbar>-->
 
 <div class="div-principal p-5">
 
-  <div class="d-flex justify-content-evenly mb-5">
+
         
-        <!--<a routerLink="/"><input type="button" value="Pagina-Principal"></a>-->
-        <!--<a routerLink="/pagina2"><input type="button" value="Pagina2"></a>-->
+        <!--<a routerLink="/"><input type="button" value="Pagina-Principal"></a>
+        <a routerLink="/pagina2"><input type="button" value="Pagina2"></a>
         <button mat-raised-button color="primary" (click)="navegarPara([''])"> Pagina Principal </button>
-        <button mat-raised-button color="primary" (click)="navegarPara(['pagina2'])"> Pagina 2 </button>
+        <button mat-raised-button color="primary" (click)="navegarPara(['pagina2'])"> Pagina 2 </button>-->
         <button mat-raised-button color="primary" (click)="openDialogAddProduto()"> Add Produto </button>
-    </div>
+    
 
     <mat-form-field appearance="standard">
         <mat-label>Filter</mat-label>
@@ -68,8 +68,7 @@
         </td>
       </ng-container>
 
-      
-  
+    
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     
@@ -77,5 +76,20 @@
         <tr class="mat-row" *matNoDataRow>
           <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
         </tr>
+
       </table>
+   
+     <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 aria-label="Select page of periodic elements">
+  </mat-paginator> -->
+
+  <mat-paginator #paginator
+  [length]="totalDeLinhas"
+  [pageIndex]="pagina"
+  [pageSize]="limiteDeLinhas"
+  [pageSizeOptions]="pageSizeOptions1"
+  (page)="pageChanged($event)"
+  aria-label="Select page">
+  </mat-paginator> 
+
 </div>

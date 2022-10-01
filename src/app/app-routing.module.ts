@@ -6,17 +6,29 @@ import { Pagina2Component } from './componentes/pagina2/pagina2.component';
 
 const routes: Routes = [
   {
-    path:'pagina1',
-    component:Pagina1Component
-  },
-
-  {
-   path:'pagina2',
-   component:Pagina2Component
+    path: '',
+    redirectTo: 'transacoes',
+    pathMatch: 'full'
   },
   {
-    path:'',
-    component:PaginaPrincipalComponent
+    path: 'transacoes',
+    component: PaginaPrincipalComponent,
+    data: { title: 'Transações'},
+  },
+  {
+    path: 'pagina1',
+    redirectTo: 'produtos',
+    pathMatch: 'full'
+  },
+  {
+    path: 'produtos',
+    component: Pagina1Component,
+    data: { title: 'Produtos'},
+  },
+  {
+    path: 'pagina2',
+    component: Pagina2Component,
+    data: { title: 'Página 2'},
   }
 ];
 
