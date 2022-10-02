@@ -25,15 +25,41 @@ export class DialogInseririTransacaoComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.data);
 
+    
   }
 
   salvar(){
 
-    let transacaoObj = this.formToModel();
+    let transacaoParaSalvar = this.formToModel();
 
     let that = this;
 
-    this.transacaoService.insert(transacaoObj).subscribe(
+    this.transacaoService.selectUltimoSaldo().subscribe(
+      saldo=>{
+        if(saldo){
+          
+          if(transacaoParaSalvar.tipo == "ENTRADA"){
+
+            transacaoParaSalvar.saldo = Number (saldo) + Number (transacaoParaSalvar.valor)
+            this.salvarTransacao(transacaoParaSalvar);
+
+          }else if(transacaoParaSalvar.tipo == "SAIDA"){
+
+            transacaoParaSalvar.saldo = Number (saldo) - Number (transacaoParaSalvar.valor)
+            this.salvarTransacao(transacaoParaSalvar);
+          }
+         // SALVAR TRANSAÇÃO
+        }
+      }
+    )
+
+  }
+
+  salvarTransacao(transacaoParaSalvar: Transacao){
+
+    let that = this;
+
+    this.transacaoService.insert(transacaoParaSalvar).subscribe(
       {
         next(transacao){
           that.dialogRef.close(transacao);
@@ -42,7 +68,7 @@ export class DialogInseririTransacaoComponent implements OnInit {
           console.error(err);
         },
         complete(){
-          console.log("requisição completa");
+          //console.log("requisição completa");
         }
       }
     );
@@ -59,10 +85,7 @@ export class DialogInseririTransacaoComponent implements OnInit {
 
     return transacaoParaSalvar;
 
-    // let transacaoParaSalvar = {} as Transacao;
-    // transacaoParaSalvar.descricao = this.descricaoInput;
-    // transacaoParaSalvar.valor = this.valorInput;
-    // transacaoParaSalvar.tipo = this.tipoInput;
+    
   }
  //botao cancelar Dialog
   cancelar(){
@@ -70,3 +93,5 @@ export class DialogInseririTransacaoComponent implements OnInit {
   }
 
 }
+
+

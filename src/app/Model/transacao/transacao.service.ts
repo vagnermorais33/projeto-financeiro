@@ -2,6 +2,7 @@ import { Transacao } from './transacao.model';
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { map } from 'rxjs';
 
 const API = environment.urlApi;
 const RECURSO = API+'/transacao';
@@ -41,6 +42,21 @@ export class TransacaoService{
     return this.httpClient.delete<Transacao>(RECURSO+`/${id}`);
   }
 
+  selectUltimoSaldo(){
+    return this.httpClient.get<{ items: Transacao[], count: number }>
+    (RECURSO).pipe(
+      map(
+        resposta=>{
+          return resposta.items.pop()?.saldo;
+          //return resposta.items[resposta.items.length-1]
+        
+        }
+      )
+    );
+}
+
+}
+
   // selectAll(){
   //   return [
   //     { id:1, ativo: true, createdAt: "2022-08-18", updatedAt: "2022-08-18", descricao: "teste", valor: 100, saldo: 200, tipo: "ENTRADA"},
@@ -51,5 +67,3 @@ export class TransacaoService{
   //     { id:6, ativo: true, createdAt: "2022-08-18", updatedAt: "2022-08-18", descricao: "teste", valor: 100, saldo: 200, tipo: "ENTRADA"},
   //   ] as Transacao[]
   // }
-
-}
